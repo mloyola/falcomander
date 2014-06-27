@@ -1,44 +1,107 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}"/>
-        <meta name="robots" content="noindex,nofollow" />
-        <title>{% block title %}{% endblock %}</title>
-        <link href="{{ asset('bundles/framework/css/structure.css', absolute=true) }}" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ asset('bundles/framework/css/body.css', absolute=true) }}" rel="stylesheet" type="text/css" media="all" />
-        {% block head %}{% endblock %}
-    </head>
-    <body>
-        <div id="content">
-            <div class="header clear-fix">
-                <div class="header-logo">
-                    <img src="{{ asset('bundles/frontend/images/logo.png') }}" alt="Falcomandercontrol">                    
-                </div>
+{% extends '::base.html.twig' %}
 
-                <div class="search">
-                    <form method="get" action="http://symfony.com/search" target="_blank">
-                        <div class="form-row">
-                            <label for="search-id">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAABUElEQVQoz2NgAIJ29iBdD0d7X2cPb+tY2f9MDMjgP2O2hKu7vS8CBlisZUNSMJ3fxRMkXO61wm2ue6I3iB1q8Z8ZriDZFCS03fm/wX+1/xp/TBo8QPxeqf+MUAW+QIFKj/+q/wX/c/3n/i/6Qd/bx943z/Q/K1SBI1D9fKv/AhCn/Wf5L5EHdFGKw39OqAIXoPpOMziX4T9/DFBBnuN/HqhAEtCKCNf/XDA/rZRyAmrpsvrPDVUw3wrkqCiLaewg6TohX1d7X0ffs5r/OaAKfinmgt3t4ulr4+Xg4ANip3j+l/zPArNT4LNOD0pAgWCSOUIBy3+h/+pXbBa5tni0eMx23+/mB1YSYnENroT5Pw/QSOX/mkCo+l/jgo0v2KJA643s8PgAmsMBDCbu/5xALHPB2husxN9uCzsDOgAq5kAoaZVnYMCh5Ky1r88Eh/+iABM8jUk7ClYIAAAAAElFTkSuQmCC" alt="Search on Symfony website" />
-                            </label>
+{% block stylesheets %}       
+    <link href="{{ asset(directorio_css ~ "bootstrap.css")}}" rel="stylesheet">    
+    <link href="{{ asset(directorio_css ~ "modern-business.css")}}" rel="stylesheet">    
+    <link href="{{ asset(directorio_fontawesome ~ "css/font-awesome.min.css")}}" rel="stylesheet">
+{% endblock %}
 
-                            <input name="q" id="search-id" type="search" placeholder="Search on Falcomander Control" />
+{% block javascripts %}    
+    <script src="{{ asset(directorio_js ~ "jquery-1.10.2.js")}}"></script>       
+    <script src="{{ asset(directorio_js ~ "bootstrap.js")}}"></script>       
+    <script src="{{ asset(directorio_js ~ "modern-business.js")}}"></script>  
+{% endblock %}
 
-                            <button type="submit" class="sf-button">
-                                <span class="border-l">
-                                    <span class="border-r">
-                                        <span class="btn-bg">OK</span>
-                                    </span>
-                                </span>
-                            </button>
-                        </div>
-                   </form>
-                </div>
+{% block body %}
+    {% block menu %}
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+                <a class="navbar-brand" href="index.html">Falcomander Control</a>
             </div>
 
-            <div class="sf-reset">
-                {% block body %}{% endblock %}
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="about.html">About</a>
+                    </li>
+                    <li><a href="services.html">{{"Servicios" | trans }}</a>
+                    </li>
+                    <li><a href="contact.php">Contact</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="portfolio-1-col.html">1 Column Portfolio</a>
+                            </li>
+                            <li><a href="portfolio-2-col.html">2 Column Portfolio</a>
+                            </li>
+                            <li><a href="portfolio-3-col.html">3 Column Portfolio</a>
+                            </li>
+                            <li><a href="portfolio-4-col.html">4 Column Portfolio</a>
+                            </li>
+                            <li><a href="portfolio-item.html">Single Portfolio Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog-home-1.html">Blog Home 1</a>
+                            </li>
+                            <li><a href="blog-home-2.html">Blog Home 2</a>
+                            </li>
+                            <li><a href="blog-post.html">Blog Post</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="full-width.html">Full Width Page</a>
+                            </li>
+                            <li><a href="sidebar.html">Sidebar Page</a>
+                            </li>
+                            <li><a href="faq.html">FAQ</a>
+                            </li>
+                            <li><a href="404.html">404</a>
+                            </li>
+                            <li><a href="pricing.html">Pricing Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </body>
-</html>
+        <!-- /.container -->
+    </nav>
+    {% endblock %}
+
+    {% block carousel %}{% endblock %}
+    {% block contenido %}{% endblock %}
+
+    {% block footer %}
+        <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; {{ company }} {{ year }}</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+    {% endblock %}    
+{% endblock %}

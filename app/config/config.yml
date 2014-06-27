@@ -13,7 +13,7 @@ framework:
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
-        engines: ['twig']
+        engines: ['twig','php']
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~
@@ -28,6 +28,14 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        name_web: 'wwww.falcomandercontrol.com'
+        company: 'Falcomander Control S.R.L'
+        year: '2014'
+        directorio_css: 'bundles/frontend/css/'
+        directorio_fontawesome: 'bundles/frontend/font-awesome/'
+        directorio_js:  'bundles/frontend/js/'
+        directorio_img: 'bundles/frontend/images/' 
 
 # Assetic Configuration
 assetic:
