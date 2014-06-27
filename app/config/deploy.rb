@@ -1,6 +1,6 @@
-set :application, "wayci"
+set :application, "Web Falcomander"
 set :domain,      "69.195.198.111"
-set :deploy_to,   "/var/www/vhosts/mbcomunicacionessac.com/symfony_projects/"
+set :deploy_to,   "/var/www/vhosts/falcomandercontrol.com/symfony_projects/frontend/"
 set :app_path,    "app"
 
 set :user,		  "mb"	
