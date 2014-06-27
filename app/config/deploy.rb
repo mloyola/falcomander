@@ -3,7 +3,7 @@ set :domain,      "69.195.198.111"
 set :deploy_to,   "/var/www/vhosts/falcomandercontrol.com/symfony_projects/frontend/"
 set :app_path,    "app"
 
-set :user,		  "mb"	
+set :user,		  "falcomander"	
 set :use_sudo,      false
 ssh_options[:port] = 22123
 #set :php_bin,		"usr/bin/php" 

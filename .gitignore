@@ -1,4 +1,5 @@
 /web/bundles/
+!/web/bundles/frontend/
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*
